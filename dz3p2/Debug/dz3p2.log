@@ -1,0 +1,10 @@
+﻿  hashtable.cpp
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(59,11): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(60,14): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(148,7): warning C4101: 'addr': unreferenced local variable
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(237,19): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(269,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(316,15): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(336,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\dz3p2\hashtable.cpp(396,13): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  dz3p2.vcxproj -> D:\Fakultet\II godina\III semestar\Algoritmi i strukture podataka 2\3 domaci\Debug\dz3p2.exe

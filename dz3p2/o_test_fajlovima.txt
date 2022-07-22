@@ -1,0 +1,9 @@
+Napomene i objašnjenje test fajlova:
+
+CSV fajlovi sadrže podatke odvojene zarezom.
+Prva linija fajla predstavlja zaglavlje u kojem se nalaze svojevrsni nazivi kolona podataka koji slede.
+Zatim je određeni broj linija i svaka linija predstavlja podatke jednog studenta.
+
+Ovi test fajlovi su programski generisani.
+Moguće je da postoji više redova sa istim brojem indeksa.
+Šifre predmeta su odvojene blanko znakom (razmak) i moguće je iskoristiti split funkciju zarad dobijanja pojedinačnih šifri predmeta. Moguće je da neki student nema prijavljenih ispita, svakako se treba naći u tabeli.

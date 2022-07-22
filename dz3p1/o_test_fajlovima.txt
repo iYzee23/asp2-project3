@@ -1,0 +1,112 @@
+Napomene i objašnjenje test fajlova:
+
+CSV fajlovi sadrže podatke odvojene zarezom.
+Prva linija fajla predstavlja zaglavlje u kojem se nalaze svojevrsni nazivi kolona podataka koji slede.
+Zatim je određeni broj linija i svaka linija predstavlja podatke jednog studenta.
+
+Ovi test fajlovi su programski generisani.
+Moguće je da postoji više redova sa istim brojem indeksa.
+Šifre predmeta su odvojene blanko znakom (razmak) i moguće je iskoristiti split funkciju zarad dobijanja pojedinačnih šifri predmeta. Moguće je da neki student nema prijavljenih ispita, svakako se treba naći u tabeli.
+
+
+
+//dz3p1 --> fixovati operator<< (os umesto cout)
+//dz3p1 --> kod inserta, videti jel regulisano za deleted
+//dz3p1 --> uraditi da clear sve postavlja na empty
+//dz3p1, dz3p2 --> uraditi da pronalaskom studenta mozemo da menjamo ispite
+
+20110451
+00000010
+01010001
+
+	Info* trazeni = nullptr;
+	int numPok = pow(2, b), addr;
+	for (int i = 0; i < numPok;) {
+		if (pokazivac[i]->seNalazi(key, p)) {
+			addr = (*pokazivac[i])(key);
+			if (addr != -1)
+				trazeni = pokazivac[i]->studenti[addr];
+			break;
+		}
+		i += pokazivac[i]->numPok;
+	}
+	return trazeni;
+
+-----------------------------------------------------------------------------------
+
+	if (findKey(key))
+		return false;
+	else {
+		int addr, curr;
+		unsigned ind, indikator;
+		for (int i = 0; i < numBuk;) {
+			if (baket[i]->seNalazi(key, p)) {
+				indikator = 1;
+				curr = 0;
+				if (baket[i]->curr < k)
+					*baket[i] += inf;
+				else if (baket[i]->b == p)
+					return false;
+				else {
+					//smestanje u pomocni
+					while (baket[i]->curr) {
+						ind = baket[i]->studenti[0]->index;
+						pomocni += *baket[i]->studenti[0];
+						*baket[i] -= ind;
+					}
+					pomocni += inf;
+					//rotacija udesno
+					Bucket* pom = baket[numBuk];
+					for (int j = numBuk; j > i; j--) 
+						baket[j] = baket[j - 1];
+					baket[i + 1] = pom; numBuk++;
+					//formiranje nova dva
+					baket[i]->b++;
+					baket[i + 1]->b = baket[i]->b;
+					for (int j = 0; j < baket[i]->b - 1; j++)
+						baket[i + 1]->bitovi[j] = baket[i]->bitovi[j];
+					baket[i]->bitovi[baket[i]->b - 1] = 0;
+					baket[i + 1]->bitovi[baket[i + 1]->b - 1] = 1;
+					while (pomocni.curr) {
+						ind = pomocni.studenti[0]->index;
+						if (pomocni.curr != 1) {
+							if (baket[i]->seNalazi(ind, p))
+								*baket[i] += *pomocni.studenti[0];
+							else
+								*baket[i + 1] += *pomocni.studenti[0];
+						}
+						else {
+							if (baket[i]->seNalazi(ind, p)) {
+								if (baket[i]->curr < k)
+									*baket[i] += *pomocni.studenti[0];
+								else
+									indikator = 0;
+							}
+							else {
+								if (baket[i + 1]->curr < k)
+									*baket[i + 1] += *pomocni.studenti[0];
+								else
+									indikator = 0;
+							}
+						}
+						pomocni -= ind;
+					}
+					//prevezivanje pokazivaca
+					if (baket[i]->b > b) {
+						b++;
+						for (int j = 0; j < numBuk; j++)
+							baket[j]->numPok *= 2;
+					}
+					baket[i]->numPok /= 2;
+					baket[i + 1]->numPok = baket[i]->numPok;
+					for (int j = 0; j < numBuk; j++)
+						for (int k = 0; k < baket[j]->numPok; k++)
+							pokazivac[curr++] = baket[j];
+					if (!indikator) continue;
+				}
+				return true;
+			}
+			i++;
+		}
+	}
+	return false;
